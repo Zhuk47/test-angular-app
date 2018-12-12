@@ -10,14 +10,9 @@ import {TaskService} from '../task.service';
 export class TasksComponent implements OnInit {
 
     tasks: Task[];
-    selectedTask: Task;
 
     getTasks(): void {
         this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
-    }
-
-    onSelect(task: Task): void {
-        this.selectedTask = task;
     }
 
     constructor(private taskService: TaskService) {
