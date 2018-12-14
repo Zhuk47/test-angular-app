@@ -7,6 +7,7 @@ import {TaskService} from '../task.service';
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.css']
 })
+
 export class DashboardComponent implements OnInit {
 
     tasks: Task[] = [];
@@ -15,7 +16,7 @@ export class DashboardComponent implements OnInit {
     }
 
     getTasks(): void {
-        this.taskService.getTasks().subscribe(tasks => this.tasks = tasks.slice(1, 3));
+        this.taskService.getTasks().subscribe(tasks => this.tasks = tasks.slice(0, 4));
     }
 
     ngOnInit() {
