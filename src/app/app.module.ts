@@ -6,7 +6,12 @@ import {AppComponent} from './app.component';
 import {TasksComponent} from './tasks/tasks.component';
 import {TaskDetailComponent} from './task-detail/task-detail.component';
 import {MessagesComponent} from './messages/messages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {HttpClientModule} from '@angular/common/http';
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryDataService} from './in-memory-data.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TaskSearchComponent } from './task-search/task-search.component';
 
 @NgModule({
     declarations: [
@@ -14,15 +19,22 @@ import { DashboardComponent } from './dashboard/dashboard.component';
         TasksComponent,
         TaskDetailComponent,
         MessagesComponent,
-        DashboardComponent
+        DashboardComponent,
+        TaskSearchComponent,
     ],
     imports: [
         BrowserModule,
         FormsModule,
-        AppRoutingModule
+        AppRoutingModule,
+        HttpClientModule,
+        HttpClientInMemoryWebApiModule.forRoot(
+            InMemoryDataService, {dataEncapsulation: false}
+        ),
+        BrowserAnimationsModule
     ],
     providers: [],
     bootstrap: [AppComponent]
 })
+
 export class AppModule {
 }
